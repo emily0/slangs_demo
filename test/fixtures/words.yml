@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  chinese: MyString
+  pinyin: MyString
+  meaning: MyText
+  exampleUsage: MyText
+  funny: 1.5
+  useful: 1.5
+
+two:
+  chinese: MyString
+  pinyin: MyString
+  meaning: MyText
+  exampleUsage: MyText
+  funny: 1.5
+  useful: 1.5

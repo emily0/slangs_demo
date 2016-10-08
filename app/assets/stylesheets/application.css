@@ -13,3 +13,7 @@
  *= require_tree .
  *= require_self
  */
+.word-wrapper {
+  border: 1px solid black;
+  margin-top: 50px;
+}
