@@ -8,6 +8,10 @@ class WordsController < ApplicationController
     @word = Word.new
   end
 
+  def edit
+    @word = Word.find(params[:id])
+  end
+
   def create
     @word = Word.new(word_params)
 
@@ -15,8 +19,20 @@ class WordsController < ApplicationController
     redirect_to @word
   end
 
+  def update
+    @word = Word.find(params[:id])
+    @word.update
+    redirect_to @word
+  end
+
   def show
     @word = Word.find(params[:id])
+  end
+
+  def destroy
+    @word = Word.find(params[:id])
+    @word.destroy
+    redirect_to root_path
   end
 
   private

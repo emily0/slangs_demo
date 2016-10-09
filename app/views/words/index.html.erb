@@ -1,5 +1,138 @@
+<div id="wrapper">
+  <ul>
+    <% @words.each do |word| %>
+    <li class="item_wrapper"><a class ="modal_trigger" href="#modal" class="btn"><%= word.title %></a></li>
+    <% end %>
+  </ul>
+</div>
+
 <% @words.each do |word| %>
-<div class="word-wrapper">
-  <%= word.title %>
+<div id="modal" class="popupContainer" style="display:none;">
+  <div class="card-wrapper">
+    <div class="card-content">
+      <span><strong>Pinyin</strong></span>
+      <hr>
+      <div class="main-content">
+        <section class="word-card">
+          <div class="section_1"><span><%= word.title %></span></div>
+        </section>
+        <section class="section_2">
+          <p class="section_2_title item-label">Example</p>
+          <p class="section_2_content"><%= word.exampleUsage %></p>
+        </section>
+        <hr>
+        <section class="section_3">Comment</section>
+      </div>
+      <div class="side-content">
+        <div class="word-info">
+          <ul class="word-list">
+            <li class="item-label">Chinese / Pinyin</li>
+            <li class="item"><%= word.chinese %> / <%= word.pinyin %></li>
+            <hr>
+            <li class="item-label">Meaning</li>
+            <li class="item"><%= word.meaning %></li>
+            <hr>
+            <li class="item-label">Rating</li>
+            <li>
+              <div class="progress">
+                <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="progress">
+                <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+                </div>
+              </div>
+            </li>
+          <hr>
+          </ul>
+          <div class="author"><p align="center">by King Ani Mal October 04, 2016</p></div>
+        </div>
+        <div class="word-more">
+          <% @words.each do |word| %>
+            #<%= link_to word.title, word_path(word) %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 <% end %>
+
+
+<script type="text/javascript">
+  $(".modal_trigger").leanModal({top : 60, overlay : 0.6, closeButton: ".modal_close" });
+</script>
+<script>
+// leanModal v1.1 by Ray Stone - http://finelysliced.com.au
+// Dual licensed under the MIT and GPL
+(function ($) {
+  $.fn.extend({
+      leanModal: function (options) {
+          var defaults = {
+              top: 100,
+              overlay: 0.5,
+              closeButton: null
+          };
+          var overlay = $("<div id='lean_overlay'></div>");
+          $("body").append(overlay);
+          options = $.extend(defaults, options);
+          return this.each(function () {
+              var o = options;
+              var modal_id = $(this).attr("href");
+
+              function showModal() {
+                  $("#lean_overlay").click(function () {
+                      close_modal(modal_id)
+                  });
+                  $(o.closeButton).click(function () {
+                      close_modal(modal_id)
+                  });
+
+                  var modal_height = $(modal_id).outerHeight();
+                  var modal_width = $(modal_id).outerWidth();
+
+                  $("#lean_overlay").css({
+                      "display": "block",
+                      opacity: 0
+
+                  });
+
+                  $("#lean_overlay").fadeTo(200, o.overlay);
+
+                  $(modal_id).css({
+                      "display": "block",
+                      "position": "fixed",
+                      "opacity": 0,
+                      "z-index": 11000,
+                      "left": 50 + "%",
+                      "margin-left": -(modal_width / 2) + "px",
+                      "top": o.top + "px"
+
+                  });
+
+                  $(modal_id).fadeTo(200, 1);
+              };
+
+              $(document).ready(function () {
+                  showModal();
+              });
+
+              $(this).click(function (e) {
+                  showModal();
+                  e.preventDefault()
+              })
+          });
+
+          function close_modal(modal_id) {
+              $("#lean_overlay").fadeOut(200);
+              $(modal_id).css({
+                  "display": "none"
+              })
+          }
+      }
+  })
+})(jQuery);
+
+</script>
