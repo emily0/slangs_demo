@@ -1,0 +1,72 @@
+.create_card {
+  width: 600px;
+  height: 300px;
+  border: 1px solid black;
+  margin: 0 auto;
+}
+
+.input_slang {
+  width: 50%;
+  height: 300px;
+  float: left;
+  border-right: 1px solid black;
+}
+
+.input_type, .input_meaning, .input_rating {
+  width: 50%;
+  height: 300px;
+  float: right;
+  li {
+    list-style: none;
+    border: 1px solid black;
+    border-radius: 30px;
+    padding:5px;
+    width: 80px;
+    float: left;
+    text-align: center;
+    margin-right: 5px;
+    margin-top: 10px;
+    text-decoration: none;
+  }
+  li:hover {
+    background: #c6c6c6;
+    text-decoration: none;
+  }
+
+}
+
+.action_btns {
+  border-top: 1px solid black;
+}
+.input_slang input[type="text"] {
+  width:90%;
+  padding: 10px;
+  background: #e9e9e9;
+  margin-top: 120px;
+  margin-left: 15px;
+  outline-width: 0;
+  border:1px solid #DDD;
+}
+
+.form_input {
+  height: 254px;
+  padding: 30px 2px 0 20px;
+}
+
+.button_type {
+  border: 1px solid black;
+  border-radius: 25px;
+  padding: 5px 20px;
+  line-height: 40px;
+  margin-right: 10px;
+}
+/* User Input Form */
+.form_input label {display: block; margin-bottom:5px; margin-top: 20px;}
+.form_input input[type="text"] {
+  display: block;
+  width:90%;
+  padding: 10px;
+  border:1px solid #DDD;
+  color:#666;
+  margin-top: 10px;
+}

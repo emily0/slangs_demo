@@ -1,0 +1,91 @@
+<a id="modal_trigger" href="#modal_2" class="btn add_new_card">add_new_card</a>
+<div id="modal_2" style="display:none;">
+  <section class="create_card">
+    <!-- Create new card -->
+
+    <div class="input_slang">
+      <form>
+        <input type="text" placeholder="New Word"/>
+      </from>
+    </div>
+
+    <div class="input_type">
+      <div class="form_input">
+      <form>
+        <label>類型</label>
+        <li class="type_item"><a href="#">英語</a></li>
+        <li class="type_item"><a href="#">注音</a></li>
+        <li class="type_item"><a href="#">數字</a></li>
+        <li class="type_item"><a href="#">台語</a></li>
+        <li class="type_item"><a href="#">流行語</a></li>
+        <li class="type_item"><a href="#">口頭禪</a></li>
+        <li class="type_item"><a href="#">語助詞</a></li>
+        <li class="type_item"><a href="#">其他</a></li>
+      </form>
+      </div>
+      <div class="action_btns">
+        <div class="one_half_last"><a href="#" id="next_1" class="btn"><i class="fa fa-angle-double-left"></i> Next</a></div>
+      </div>
+    </div>
+    <div class="input_meaning">
+      <div class="form_input">
+      <form>
+        <label>拼音</label>
+        <input type="text" />
+        <label>英譯</label>
+        <input type="text" />
+      </from>
+      </div>
+      <div class="action_btns">
+        <div class="one_half"><a href="#" class="btn back_btn back_btn_1"><i class="fa fa-angle-double-left"></i> Back</a></div>
+        <div class="one_half_last"><a href="#" id="next_2" class="btn"><i class="fa fa-angle-double-left"></i> Next</a></div>
+      </div>
+    </div>
+    <div class="input_rating">
+      <div class="form_input">
+        <label>Funny</label>
+        <input type="text" />
+        <label>Useful</label>
+        <input type="text" />
+      </div>
+      <div class="action_btns">
+        <div class="one_half"><a href="#" class="btn back_btn back_btn_2"><i class="fa fa-angle-double-left"></i> Back</a></div>
+        <div class="one_half_last"><a href="#" id="submit" class="btn"><i class="fa fa-angle-double-left"></i> Create</a></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<script type="text/javascript">
+  $("#modal_trigger").leanModal({top : 200, overlay : 0, closeButton: ".modal_close" });
+
+	$(function(){
+		// Calling Login Form
+		$(".add_new_card, .back_btn_1").click(function(){
+      $(".input_slang").show();
+      $(".input_type").show();
+      $(".input_meaning").hide();
+      $(".input_rating").hide();
+			return false;
+		});
+
+		// Calling Register Form
+		$("#next_1, .back_btn_2").click(function(){
+      $(".input_slang").show();
+      $(".input_type").hide();
+      $(".input_meaning").show();
+      $(".input_rating").hide();
+			return false;
+		});
+
+		// Going back to Social Forms
+		$("#next_2").click(function(){
+      $(".input_slang").show();
+      $(".input_type").hide();
+      $(".input_meaning").hide();
+      $(".input_rating").show();
+			return false;
+		});
+
+	})
+</script>

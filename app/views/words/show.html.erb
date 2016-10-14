@@ -1,13 +1,136 @@
-<p>
-  <strong>Title:</strong>
-  <%= @word.title %>
-</p>
-<p>
-  <strong>Chinese:</strong>
-  <%= @word.chinese %>
-</p>
+<div class="wrapper">
+<div class="popupContainer container">
+  <div class="card-wrapper row">
+    <div class="card-header col-md-12">
+      <span><strong>Chinese to English</strong></span>
+      <hr>
+    </div>
+      <div class="main-content col-md-6">
+        <section class="word-card">
+          <div class="section_1"><span><%= @word.title %></span></div>
+        </section>
+        <section class="section_2">
+          <p class="section_2_title item-label">Note</p>
+          <div id="notes">
+            <%= render @word.notes %>
+          </div>
 
-<p>
-  <strong>Pinyin:</strong>
-  <%= @word.pinyin %>
-</p>
+          <div class="add_button">
+              <div class="add"><i class="fa fa-plus"></i></div>
+              <div class="content">
+                <%= render "notes/form" %>
+              </div>
+          </div>
+        </section>
+
+        <hr>
+        <section class="section_3">
+          <p class="section_2_title item-label">Example</p>
+          <div id="examples">
+            <%= render @word.examples %>
+          </div>
+
+          <div class="add_button">
+              <div class="add"><i class="fa fa-plus"></i></div>
+              <div class="content">
+                <%= render "examples/form" %>
+              </div>
+          </div>
+
+        </section>
+
+      </div>
+      <div class="side-content col-md-6">
+        <div class="word-info">
+          <ul class="word-list">
+            <li class="item-label">Pinyin</li>
+            <li class="item"><%= @word.pinyin %></li>
+            <hr>
+            <li class="item-label">Meaning</li>
+            <li class="item"><%= @word.meaning %></li>
+            <hr>
+            <li class="item-label">Funny</li>
+            <li>
+              <nav>
+                <li class="scale_item scale_item_click"></li>
+                <li class="scale_item scale_item_click"></li>
+                <li class="scale_item scale_item_click"></li>
+                <li class="scale_item scale_item_click"></li>
+                <li class="scale_item"></li>
+              </nav>
+            </li>
+            <br><br>
+            <li class="item-label">Useful</li>
+            <li>
+              <nav>
+                <li class="scale_item scale_item_click"></li>
+                <li class="scale_item scale_item_click"></li>
+                <li class="scale_item scale_item_click"></li>
+                <li class="scale_item"></li>
+                <li class="scale_item"></li>
+              </nav>
+            </li>
+          <hr>
+          </ul>
+        </div>
+        <div class="card-buttons">
+          <div class="card-button button-like"><span>Like</span></div>
+          <div class="card-button button-copy"><span>Copy</span></div>
+        </div>
+        <hr>
+        <div class="word-info">
+          <ul class="word-list">
+            <li class="item-label">Synonym</li>
+
+
+            <li class="item-label">Popular</li>
+
+            <% Word.all.each do |word| %>
+              <li class="list_item"><%= link_to "##{word.title}", word_path(word) %> &nbsp;&nbsp;</li>
+            <% end %>
+
+          </ul>
+        </div>
+      </div>
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<%= link_to "Edit this word", edit_word_path(@word), class: "btn btn-xs btn-primary" %>
+<%= link_to "Delete this word", word_path(@word), method: :delete,
+                                        data: { confirm: "Are you sure you want to delete the word?"},
+                                        class: "btn btn-xs btn-danger" %>
+</div>
+
+
+<script>
+$(".add").click(function () {
+
+    $header = $(this);
+    //getting the next element
+    $content = $header.next();
+    //open up the content needed - toggle the slide- if visible, slide up, if not slidedown.
+    $content.slideToggle(500, function () {
+        //execute this after slideToggle is done
+        //change text of header based on visibility of content div
+    });
+
+});
+</script>

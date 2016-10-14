@@ -1,7 +1,7 @@
 class WordsController < ApplicationController
 
   def index
-    @words = Word.all
+    @words = Word.all.order('created_at DESC')
   end
 
   def new
@@ -10,6 +10,7 @@ class WordsController < ApplicationController
 
   def edit
     @word = Word.find(params[:id])
+
   end
 
   def create
@@ -21,8 +22,8 @@ class WordsController < ApplicationController
 
   def update
     @word = Word.find(params[:id])
-    @word.update
-    redirect_to @word
+    @word.update(word_params)
+    redirect_to word_path(@word)
   end
 
   def show
@@ -37,6 +38,6 @@ class WordsController < ApplicationController
 
   private
   def word_params
-    params.require(:word).permit(:title, :chinese, :pinyin, :meaning, :exampleUsage)
+    params.require(:word).permit(:title, :chinese, :pinyin, :meaning, :exampleUsage, type_ids: [])
   end
 end

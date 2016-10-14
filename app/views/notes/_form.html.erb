@@ -1,0 +1,10 @@
+<%= form_for([@word, @word.notes.build]) do |f| %>
+  <form class="form-inline">
+    <div class="form-group">
+      <div class="input-group">
+        <%= f.text_area :body, class:"form-control", rows: "2", placeholder: "Explanation"%>
+      </div>
+      <%= f.submit class: 'btn' %>
+    </div>
+  </form>
+<% end %>

@@ -1,0 +1,54 @@
+
+<div class="grid">
+  <div class="grid-item">dddd</div>
+  <div class="grid-item grid-item--width2 grid-item--height2">dddd</div>
+  <div class="grid-item grid-item--height3">ddd</div>
+  <div class="grid-item grid-item--height2">ddd</div>
+  <div class="grid-item grid-item--width3">ddd</div>
+  <div class="grid-item">ddd</div>
+
+</div>
+
+
+
+
+<% @words.each do |word| %>
+ <div class="grid">
+   <% if word.title == "BJ4" %>
+   <div class="grid-item"><%= link_to word.title, word_path(word) %></div>
+   <% elsif word.title == "87..." %>
+   <div class="grid-item grid-item--width2 grid-item--height2"><%= link_to word.title, word_path(word) %></div>
+   <% elsif word.title == "520" %>
+   <div class="grid-item grid-item--height3"><%= link_to word.title, word_path(word) %></div>
+   <% elsif word.title == "GG" %>
+   <div class="grid-item grid-item--height2"><%= link_to word.title, word_path(word) %></div>
+   <% elsif word.title == "LINE" %>
+   <div class="grid-item grid-item--width3"><%= link_to word.title, word_path(word) %></div>
+   <% else %>
+   <div class="grid-item">ddd</div>
+   <% end %>
+ </div>
+<% end %>
+
+
+
+<script>
+// external js: masonry.pkgd.js
+
+var grid = document.querySelector('.grid');
+var msnry = new Masonry( grid, {
+  columnWidth: 160
+});
+
+grid.addEventListener( 'click', function( event ) {
+  // don't proceed if item was not clicked on
+  if ( !matchesSelector( event.target, '.grid-item' ) ) {
+    return;
+  }
+  // change size of item via class
+  event.target.classList.toggle('grid-item--gigante');
+  // trigger layout
+  msnry.layout();
+});
+
+</script>

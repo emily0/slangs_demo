@@ -24,7 +24,14 @@
    text-decoration: none;
  }
 
- #test {
+ hr {
+     margin-top: 0px;
+     margin-bottom: 0px;
+     border-top: 3px solid #eee;
+   }
+
+
+  #test {
  width: 330px;
  height: auto;
  display: none;
@@ -101,23 +108,45 @@
    list-style: none;
  }
 
+.wrapper {
+    width: 100%;
+}
+
  .item_wrapper {
    display: inline-block;
    width: 200px;
-   height: 120px;
-   background: #faec8b;
-   line-height: 120px;
+   height: 200px;
+   background: #f292a2;
    margin-left: 20px;
    margin-bottom: 40px;
    padding: 5px;
    text-align: center;
    border-radius: 2px;
-   border: 8px solid white;
+   border: 30px solid #e9ecf3;
+   box-shadow:0 0 5px #ccc;
+   font-size: 2em;
+   font-weight: bold;
+   letter-spacing: .3em;
+   color: #e9ecf3;
+ }
+ .item_wrapper_1 {
+   display: inline-block;
+   width: 200px;
+   height: 200px;
+   background: #fed300;
+
+   margin-left: 20px;
+   margin-bottom: 40px;
+   padding: 5px;
+   text-align: center;
+   border-radius: 2px;
+   border: 30px solid white;
    box-shadow:0 0 5px #ccc;
    font-size: 2em;
    font-weight: bold;
    letter-spacing: .3em;
  }
+
   .item_wrapper li a{
     color: #515164;
   }
@@ -135,57 +164,68 @@
  }
 
  .popupContainer{
- 	position:absolute;
- 	width:930px;
- 	height: auto;
- 	left:45%;
- 	background: #FFF;
+  width: 50%;
+ 	height:100%;
+  margin: 50px auto;
+  padding: 35px 65px;
   border-radius: 6px;
-  background: #f6f6f6;
+  background: #f8f8f8;
+  border: 1px solid #c6c6c6;
   box-shadow: 0 1px 2px rgba(0,0,0,0.07);
+  display: block;
  }
- #modal_trigger {margin:10px 10px; width:240px; display:block;}
 
- .card-wrapper {
-   width: 100%;
- }
- .card-content {
+ .card-header {
+   clear: both;
    margin: 0 auto;
-   padding: 25px 100px;
+   font-size: 2em;
+ }
+ .card-header span {
+   margin-left: 10px;
+   color: #6d6d6d;
  }
  .section_2, .section_3, .word-more {
    margin-top: 15px;
  }
  .main-content{
-   width: 48%;
    float: left;
    margin-bottom: 30px;
    margin-top: 15px;
  }
  .section_1 {
-   height: 250px;
-   background: #faec8b;
-   border-radius: 5px;
+   height: 320px;
+   width: 320px;
+   background: #afc800;
+   border: 20px solid #eeeeee;
    text-align:center;
-   line-height: 250px;
-
-   font-size: 5em;
-   color: #515164;
+   font-size: 3em;
+   color: #fff;
    letter-spacing: .3em;
+   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+   line-height: 270px;
  }
+
+  .section_1 span {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: normal;
+  }
+
+  .section_1 hr {
+    margin-bottom: 15px;
+  }
 .section_2,.section_3 {
 
 }
  .side-content {
-   width: 45%;
    float: left;
    overflow: hidden;
-   padding-left: 50px;
    margin-top: 15px;
  }
 
 .word-info {
-
+   padding-left: 40px;
+   padding-top: 10px;
 }
  .word-info ul {
    list-style: none;
@@ -193,6 +233,41 @@
    padding: 0;
  }
 
+ .scale_item {
+   width: 45px;
+   height: 10.5px;
+   background: #e0e0e0;
+   float: left;
+   display: inline-block;
+   margin-right: 6px;
+ }
+.scale_item_click {
+  background: #afc800;
+}
+
+.card-buttons {
+  margin-top: 23px;
+}
+
+.card-button {
+  width: 97px;
+  height: 28px;
+  font-size: 1.2em;
+  color: #c6c6c6;
+  padding-top: 3px;
+  padding-left: 40px;
+  float: left;
+  border-radius: 3px;
+}
+.button-like {
+  background-image: url(button_like.png);
+  margin-left: 50px;
+}
+.button-copy {
+  background-image: url(button_copy.png);
+  margin-left: 27px;
+  margin-right: 27px;
+}
  .item-label {
    color: #898989;
    margin-bottom: 15px;
@@ -204,11 +279,44 @@
    margin-bottom: 30px;
  }
 
- .word-more {
-
+ .list_item {
    color: #c6c6c6;
+   float: left;
  }
- .word-more a {
+ .list_item a {
    text-decoration: none;
    margin-left: 5px;
+ }
+
+
+.wrapper-form {
+  width: 20%;
+  margin: 30px auto;
+}
+
+
+
+
+
+
+ @media screen and (max-width:480px){
+  .popupContainer, .main-content, .word-more{
+    width: 100%;
+  }
+  .section_2, .section_3 {
+    display: none;
+  }
+
+  #logo-title, #search, #create, #sidebar_icon{
+    display: none;
+  }
+ }
+
+ @media screen and (min-width:481px) and (max-width:768px){
+   .popupContainer, .main-content, .word-more{
+     width: 80%;
+   }
+   .section_2, .section_3 {
+     width: 80%;
+   }
  }

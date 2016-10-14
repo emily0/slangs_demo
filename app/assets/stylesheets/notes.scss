@@ -1,0 +1,20 @@
+// Place all the styles related to the Notes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.add_button {
+    width:100%;
+    border-bottom: 1px solid #d3d3d3;
+}
+.add_button div {
+    width:100%;
+}
+.add_button .add {
+    padding: 2px;
+    cursor: pointer;
+    font-weight: bold;
+    text-align: right;
+}
+.add_button .content {
+    display: none;
+    padding : 5px;
+}
